@@ -1,0 +1,29 @@
+/* Media query */
+@media (min-width: 992px) {
+    .location {
+        position: absolute;
+    }
+
+    .navbar li {
+        margin-inline: 0.6em;
+    }
+}
+
+@media (max-width: 992px) {
+    .location {
+        margin-top: 1.25rem;
+    }
+}
+
+/* style */
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+}
+
+footer {
+    position: sticky;
+    top: 100%;
+}
