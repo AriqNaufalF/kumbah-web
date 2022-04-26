@@ -36,7 +36,7 @@
             <button class="btn btn-block btn-info text-light">Ulasan</button>
         </div>
     </div>
-    <div class="mt-3 p-1 border rounded">
+    <div class="mt-3 p-2 border rounded">
         <div class="table-responsive rounded">
             <table class="table table-borderless table-hover">
                 <thead class="bg-primary text-light">

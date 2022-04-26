@@ -24,3 +24,7 @@ Route::get('/laundries', function () {
 Route::get('/laundry/name', function () {
     return view('customer.laundry');
 });
+
+Route::get('/order', function () {
+    return view('customer.orderhistory');
+});
