@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
-        <a class="navbar-brand ms-2 fw-bold" href="#">
+        <a class="navbar-brand ms-2 fw-bold" href="/">
             <img src="/img/logo-kumbah.svg" alt="Kumbah Logo" width="30" class="d-inline-block align-text-bottom">
             Kumbah
         </a>
@@ -10,7 +10,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link active" href="#"><i class="bi bi-journal-text fs-5"></i> <span class="d-lg-none">Order History</span></a>
+            <a class="nav-link" href="#"><i class="bi bi-journal-text fs-5"></i> <span class="d-lg-none">Order History</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"><i class="bi bi-bell fs-5"></i> <span class="d-lg-none">Notification</span></a>
