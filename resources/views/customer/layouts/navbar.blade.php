@@ -16,7 +16,7 @@
             <a class="nav-link" href="#"><i class="bi bi-bell fs-5"></i> <span class="d-lg-none">Notification</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="bi bi-cart-fill fs-5"></i> <span class="d-lg-none">Cart</span></a>
+            <a class="nav-link" href="/cart"><i class="bi bi-cart-fill fs-5"></i> <span class="d-lg-none">Cart</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">User <i class="bi bi-person-circle fs-5 d-none d-lg-inline ps-1"></i></a>

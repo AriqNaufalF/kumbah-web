@@ -25,6 +25,10 @@ Route::get('/laundry/name', function () {
     return view('customer.laundry');
 });
 
+Route::get('/cart', function () {
+    return view('customer.cart');
+});
+
 Route::get('/order', function () {
     return view('customer.orderhistory');
 });
