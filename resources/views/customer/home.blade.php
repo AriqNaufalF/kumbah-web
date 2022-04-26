@@ -25,15 +25,15 @@
 
     {{-- card --}}
     <div class="see-all d-flex justify-content-end">
-        <a href="#" class="btn btn-outline-secondary">See All</a>
+        <a href="/laundries" class="btn btn-outline-secondary">See All</a>
     </div>
-    <div class="row mt-2 mb-5">
+    <div class="row mt-2 mb-5 row-cols-1 row-cols-md-4 g-3">
         @for ($i = 0; $i < 4; $i++)
         <div class="col">
-            <div class="card mx-auto shadow" style="width: 18rem;">
-                <img src="https://source.unsplash.com/random/640x354" class="card-img-top" alt="...">
+            <div class="card mx-auto shadow" style="max-width: 18rem;">
+                <img src="/img/laundry-1.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Nama Laundry</h5>
+                    <h5 class="card-title"><a href="/laundry/name" class="text-decoration-none stretched-link  text-dark">Nama Laundry</a></h5>
                     <p class="card-text"><small class="text-muted">Lokasi</small></p>
                     <div class="d-flex justify-content-between">
                     <h6 class="fw-bold"><i class="bi bi-star-fill text-warning"></i> 4.1</h6>
