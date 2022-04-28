@@ -49,7 +49,7 @@
                             <option value="3">Three</option>
                         </select>
                         <div class="d-grid">
-                            <button class="btn btn-info">Pay</button>
+                            <button class="btn btn-info text-light" type="submit">Pay</button>
                         </div>
                     </form>
                 </div>
