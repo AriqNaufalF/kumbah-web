@@ -32,3 +32,14 @@ Route::get('/cart', function () {
 Route::get('/order', function () {
     return view('customer.orderhistory');
 });
+
+Route::get('/reviews', function () {
+    return view('customer.reviews');
+});
+Route::get('/reviews/name', function () {
+    return view('customer.review');
+});
+
+Route::get('/profile/user', function () {
+    return view('customer.profile');
+});
