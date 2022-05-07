@@ -1,5 +1,7 @@
 @extends('customer.layouts.main')
 
+@section('title', 'Vendor Name')
+
 @section('container')
 {{--* description --}}
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mt-4">

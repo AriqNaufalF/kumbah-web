@@ -12,14 +12,18 @@
           <li class="nav-item">
             <a class="nav-link" href="/order"><i class="bi bi-journal-text fs-5"></i> <span class="d-lg-none">Order History</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><i class="bi bi-bell fs-5"></i> <span class="d-lg-none">Notification</span></a>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-envelope fs-5"></i> <span class="d-lg-none">Notification</span></a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="/reviews">Reviews</a></li>
+              <li><a class="dropdown-item" href="#">Order status</a></li>
+            </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/cart"><i class="bi bi-cart-fill fs-5"></i> <span class="d-lg-none">Cart</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">User <i class="bi bi-person-circle fs-5 d-none d-lg-inline ps-1"></i></a>
+            <a class="nav-link" href="/profile/user">User <i class="bi bi-person-circle fs-5 d-none d-lg-inline ps-1"></i></a>
           </li>
         </ul>
       </div>

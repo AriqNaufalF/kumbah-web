@@ -1,5 +1,7 @@
 @extends('customer.layouts.main')
 
+@section('title', 'My Order History')
+
 @section('container')
     <div class="text-center mt-4">
         <h1 class="text-uppercase fw-bold">order history</h1>

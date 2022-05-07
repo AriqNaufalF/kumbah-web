@@ -1,5 +1,7 @@
 @extends('customer.layouts.main')
 
+@section('title', 'My Cart')
+
 @section('container')
     <div class="mt-4">
         <h4 class="fw-bold">My Cart</h4>
