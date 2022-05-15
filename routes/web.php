@@ -14,5 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.home');
+});
+
+Route::get('/incoming-order', function () {
+    return view('admin.incomingorder');
+});
+
+Route::get('/package-list', function () {
+    return view('admin.packagelist');
+});
+
+Route::get('/order-history', function () {
+    return view('admin.orderhistory');
+});
+
+Route::get('/add-order', function () {
+    return view('admin.addorder');
 });
