@@ -1,6 +1,6 @@
 @extends('customer.layouts.main')
 
-@section('title', 'Vendor Name')
+@section('title', "$store->name")
 
 @section('container')
 {{--* description --}}
@@ -9,10 +9,10 @@
             <img src="/img/laundry-1.jpeg" alt="..." class="image-thumbnail" style="max-width: 350px; overflow:hidden">
         </div>
         <div class="col">
-            <h2 class="text-uppercase">Nama Laundry</h2>
-            <p>	Jr. Abdul No. 84, Kota Bandung</p>
-            <h6 class="text-bold">Deskripsi Laundry</h6>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse voluptatem temporibus numquam excepturi, libero maiores ducimus praesentium omnis corrupti, possimus, aliquid officia natus! Et nam vel temporibus natus eaque, quae pariatur voluptatem corporis odio numquam officiis alias enim hic distinctio nemo. Harum adipisci accusamus hic eos explicabo eveniet qui consectetur accusantium esse.</p>
+            <h2 class="text-uppercase">{{ $store->name }}</h2>
+            <p>{{ $store->address }}</p>
+            <h6 class="text-bold">Description</h6>
+            <p>{{ $store->description }}</p>
         </div>
         {{-- order button --}}
         <div class="col align-self-center">
@@ -20,7 +20,12 @@
                 <div class="card-body text-center">
                     <div class="card-title d-flex justify-content-evenly pt-1">
                         <h4><i class="bi bi-star-fill text-warning"></i> 4.1</h4>
-                        <h4 class="text-success text-uppercase">buka</h4>
+                        @if ($store->is_open)
+                            <h4 class="text-success">OPEN</h4>  
+                        @else
+                            <h4 class="text-danger">CLOSE</h4>
+                        @endif
+                        
                     </div>
                     <hr class="bg-info border-info border-2 border-top">
                     <a href="#" class="btn btn-info px-5 my-2 text-light">Pesan</a>
