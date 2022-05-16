@@ -22,11 +22,16 @@
 </head>
 <body>
 
+	@include('sweetalert::alert')
+
 	<div class="container">
 		<div class="auth-form">
 
 			<!-- Login Form -->
-			<form class="login-form" action="" method="post">
+			<form class="login-form" action="{{ url('loginp') }}" method="post">
+
+				@csrf
+
 				<h2 class="title">Sign In</h2>
 				<div class="input-field">
 					<i class="fas fa-envelope" id="icon"></i>
@@ -41,23 +46,26 @@
 			</form>
 
 			<!-- Register Form -->
-			<form class="register-form" action="" method="post">
+			<form class="register-form" action="{{ url('registerp') }}" method="post">
+
+				@csrf
+
 				<h2 class="title">Sign Up</h2>
 				<div class="input-field">
 					<i class="fas fa-user" id="icon"></i>
-					<input type="text" name="name" placeholder="Full Name">
+					<input type="text" name="name" placeholder="Full Name" required>
 				</div>
 				<div class="input-field">
 					<i class="fas fa-envelope" id="icon"></i>
-					<input type="email" name="email" placeholder="Email">
+					<input type="email" name="email" placeholder="Email" required>
 				</div>
 				<div class="input-field">
 					<i class="fas fa-phone" id="icon"></i>
-					<input type="text" name="phone" placeholder="Phone Number">
+					<input type="text" name="phone" placeholder="Phone Number" maxlength="13" onkeypress="return goodchars(event, '0123456789', this)" required>
 				</div>
 				<div class="input-field">
 					<i class="fas fa-lock" id="icon"></i>
-					<input type="password" name="pass" placeholder="Password">
+					<input type="password" name="pass" placeholder="Password" required>
 				</div>
 				<input type="submit" name="register" class="btn" value="register">
 				<p class="account-text">Already have an account ? <a href="#" id="login-now">Login now</a></p>
@@ -90,6 +98,9 @@
 
 	<!-- JQuery -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<!-- Sweetalert Js -->
+	<script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
 
 	<!-- Fontawesome Js -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
