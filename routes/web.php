@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,12 +18,10 @@ Route::get('/', function () {
     return view('customer.home');
 });
 
-Route::get('/laundries', function () {
-    return view('customer.laundries');
-});
-
-Route::get('/laundry/name', function () {
-    return view('customer.laundry');
+Route::controller(StoreController::class)->group(function () {
+    Route::get('/', 'index');
+    Route::get('/laundries', 'all');
+    Route::get('/laundry/{store:slug}', 'show');
 });
 
 Route::get('/cart', function () {

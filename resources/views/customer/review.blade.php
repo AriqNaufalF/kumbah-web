@@ -2,6 +2,10 @@
 
 @section('title', 'Leave A Review')
 
+@push('star-style')
+    <link rel="stylesheet" href="{{ asset('css/customer/star-style.css') }}">
+@endpush
+
 @section('container')
 <div class="text-center mt-4">
     <h3 class="fw-bold">Leave A Review</h3>
@@ -13,10 +17,19 @@
         <h4>Nama Laundry</h4>
         <p class="text-muted mb-3">Jr. Abdul No. 84, Kota Bandung</p>
         <small>How satisfied?</small>
-        <div class="star">
-            @for ($i = 0; $i < 5; $i++)
-            <i class="bi bi-star-fill text-secondary fs-2"></i>
-            @endfor
+        <div class="rating-css">
+            <div class="star-icon">
+                <input type="radio" value="1" name="product_rating" id="rating1">
+                <label for="rating1" class="bi bi-star-fill fs-2"></label>
+                <input type="radio" value="2" name="product_rating" id="rating2">
+                <label for="rating2" class="bi bi-star-fill fs-2"></label>
+                <input type="radio" value="3" name="product_rating" id="rating3">
+                <label for="rating3" class="bi bi-star-fill fs-2"></label>
+                <input type="radio" value="4" name="product_rating" id="rating4">
+                <label for="rating4" class="bi bi-star-fill fs-2"></label>
+                <input type="radio" value="5" name="product_rating" id="rating5">
+                <label for="rating5" class="bi bi-star-fill fs-2"></label>
+            </div>
         </div>
     </div>
     <div class="col-md-8 my-3">
