@@ -6,8 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kumbah | @yield('title', 'Home')</title>
     {{-- custom css --}}
-    <link rel="stylesheet" href="/css/customer/main.css">
+    <link rel="stylesheet" href="{{ asset('css/customer/main.css') }}">
+    @stack('star-style')
+    @stack('button')
 
+    {{-- livewire --}}
+    @livewireStyles
+    
     {{-- bootstrap css --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -19,6 +24,7 @@
         @yield('container')
     </div>
 
-    
+    {{-- livewire --}}
+    @livewireScripts
 </body>
 </html>

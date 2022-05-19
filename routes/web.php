@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
@@ -15,8 +16,7 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::group(['middleware' => ['isUser']], function()
-{
+Route::group(['middleware' => ['isUser']], function () {
     Route::get('/', function () {
         return view('customer.home');
     });
