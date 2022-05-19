@@ -8,6 +8,7 @@
     {{-- custom css --}}
     <link rel="stylesheet" href="{{ asset('css/customer/main.css') }}">
     @stack('star-style')
+    @stack('button')
 
     {{-- livewire --}}
     @livewireStyles

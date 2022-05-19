@@ -5,20 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Store extends Model
+class Service extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
 
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
-
     // relations
-    public function service()
+    public function store()
     {
-        return $this->hasMany(Service::class);
+        return $this->belongsTo(Store::class);
     }
 }
