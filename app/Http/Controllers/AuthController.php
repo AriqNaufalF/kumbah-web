@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
-
-use Auth;
-use Hash;
 
 use App\Models\User;
 
@@ -15,24 +13,18 @@ class AuthController extends Controller
 {
     public function index()
     {
-        if (Auth::check())
-        {
+        if (Auth::check()) {
             return redirect("");
-        }
-        else
-        {
+        } else {
             return view("auth.login");
         }
     }
 
     public function landing()
     {
-        if (Auth::check())
-        {
+        if (Auth::check()) {
             return redirect("");
-        }
-        else
-        {
+        } else {
             return view("landing");
         }
     }
@@ -42,12 +34,9 @@ class AuthController extends Controller
         $email  = $req->email;
         $pass   = $req->pass;
 
-        if (Auth::attempt(['role' => 'User', 'email' => $email, 'password' => $pass]))
-        {
+        if (Auth::attempt(['role' => 'User', 'email' => $email, 'password' => $pass])) {
             return redirect("");
-        }
-        else
-        {
+        } else {
             alert()->error("Login Gagal", "Periksa Kembali Email atau Password")->autoClose(3000);
             return redirect("login");
         }
@@ -55,13 +44,10 @@ class AuthController extends Controller
 
     public function register(Request $req)
     {
-        if (User::where('email', '=', $req->email)->count() > 0)
-        {
+        if (User::where('email', '=', $req->email)->count() > 0) {
             alert()->error("Register Gagal", "Email Sudah Terdaftar !")->autoClose(3000);
             return redirect("login");
-        }
-        else
-        {
+        } else {
             $user = new User();
             $user->name     = $req->name;
             $user->address  = "Change your address";
@@ -76,9 +62,13 @@ class AuthController extends Controller
         }
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
 
         return redirect('landing');
     }

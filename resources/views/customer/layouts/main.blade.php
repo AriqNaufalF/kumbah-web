@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kumbah | @yield('title', 'Home')</title>
+    <!-- Favicon -->
+	<link rel="shortcut icon" href="{{ asset('img/logo-kumbah.svg') }}">
+
     {{-- custom css --}}
     <link rel="stylesheet" href="{{ asset('css/customer/main.css') }}">
     @stack('star-style')
@@ -26,5 +29,8 @@
 
     {{-- livewire --}}
     @livewireScripts
+
+    <!-- Sweetalert Js -->
+    @stack('sweet-alert')
 </body>
 </html>

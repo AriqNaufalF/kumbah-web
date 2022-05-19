@@ -4,6 +4,7 @@ use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CustomerProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,9 +40,8 @@ Route::group(['middleware' => ['isUser']], function () {
         return view('customer.review');
     });
 
-    Route::get('/profile/user', function () {
-        return view('customer.profile');
-    });
+    Route::resource('/profile', CustomerProfileController::class)->only(['index', 'update']);
+    Route::post('/profile/change-password', [CustomerProfileController::class, 'change']);
 });
 
 Route::get('landing', [AuthController::class, 'landing']);
@@ -49,4 +49,4 @@ Route::get('login', [AuthController::class, 'index']);
 Route::post('loginp', [AuthController::class, 'login']);
 Route::post('registerp', [AuthController::class, 'register']);
 
-Route::get('logout', [AuthController::class, 'logout']);
+Route::post('/logout', [AuthController::class, 'logout']);

@@ -23,7 +23,7 @@
             <a class="nav-link" href="/cart"><i class="bi bi-cart-fill fs-5"></i> <span class="d-lg-none">Cart</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/profile/user">User <i class="bi bi-person-circle fs-5 d-none d-lg-inline ps-1"></i></a>
+            <a class="nav-link" href="/profile">{{ auth()->user()->name }} <i class="bi bi-person-circle fs-5 d-none d-lg-inline ps-1"></i></a>
           </li>
         </ul>
       </div>
