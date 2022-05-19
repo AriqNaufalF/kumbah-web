@@ -11,7 +11,7 @@
 	<title>Landing Page | Kumbah</title>
 
 	<!-- Favicon -->
-	<link rel="stylesheet" href="{{ asset('img/logo-kumbah.svg') }}">
+	<link rel="shortcut icon" href="{{ asset('img/logo-kumbah.svg') }}">
 
 	<!-- Fontawesome Css -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -21,6 +21,8 @@
 
 </head>
 <body>
+
+	@include('sweetalert::alert')
 
 	<main>
 		<div class="big-wrapper">
@@ -37,10 +39,10 @@
 								<a href="#">Features</a>
 							</li>
 							<li>
-								<a href="#">Testimonials</a>
+								<a href="#">Become Partner</a>
 							</li>
 							<li>
-								<a href="login" class="btn">Sign Up</a>
+								<a href="{{ url('login') }}" class="btn">Sign Up</a>
 							</li>
 						</ul>
 					</div>
@@ -57,15 +59,15 @@
 				<div class="container">
 					<div class="left">
 						<div class="big-title">
-							<h1>Future is here,</h1>
-							<h1>Start Exploring now.</h1>
+							<h1>Laundry Now,</h1>
+							<h1>or Naked Tomorrow.</h1>
 						</div>
 						<p class="text">
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 							tempor incididunt ut labore et dolore magna aliqua.
 						</p>
 						<div class="cta">
-							<a href="#" class="btn">Get Started</a>
+							<a href="{{ url('login') }}" class="btn">Get Started</a>
 						</div>
 					</div>
 

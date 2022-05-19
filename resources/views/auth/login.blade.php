@@ -11,7 +11,7 @@
 	<title>Login | Kumbah</title>
 
 	<!-- Favicon -->
-	<link rel="stylesheet" href="{{ asset('img/logo-kumbah.svg') }}">
+	<link rel="shortcut icon" href="{{ asset('img/logo-kumbah.svg') }}">
 
 	<!-- Fontawesome Css -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">

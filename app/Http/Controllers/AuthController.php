@@ -21,7 +21,19 @@ class AuthController extends Controller
         }
         else
         {
-            return redirect("login");
+            return view("auth.login");
+        }
+    }
+
+    public function landing()
+    {
+        if (Auth::check())
+        {
+            return redirect("");
+        }
+        else
+        {
+            return view("landing");
         }
     }
 

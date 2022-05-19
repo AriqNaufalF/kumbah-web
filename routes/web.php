@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,33 +15,43 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('customer.home');
+Route::group(['middleware' => ['isUser']], function()
+{
+    Route::get('/', function () {
+        return view('customer.home');
+    });
+
+    Route::get('/laundries', function () {
+        return view('customer.laundries');
+    });
+
+    Route::get('/laundry/name', function () {
+        return view('customer.laundry');
+    });
+
+    Route::get('/cart', function () {
+        return view('customer.cart');
+    });
+
+    Route::get('/order', function () {
+        return view('customer.orderhistory');
+    });
+
+    Route::get('/reviews', function () {
+        return view('customer.reviews');
+    });
+    Route::get('/reviews/name', function () {
+        return view('customer.review');
+    });
+
+    Route::get('/profile/user', function () {
+        return view('customer.profile');
+    });
 });
 
-Route::get('/laundries', function () {
-    return view('customer.laundries');
-});
+Route::get('landing', [AuthController::class, 'landing']);
+Route::get('login', [AuthController::class, 'index']);
+Route::post('loginp', [AuthController::class, 'login']);
+Route::post('registerp', [AuthController::class, 'register']);
 
-Route::get('/laundry/name', function () {
-    return view('customer.laundry');
-});
-
-Route::get('/cart', function () {
-    return view('customer.cart');
-});
-
-Route::get('/order', function () {
-    return view('customer.orderhistory');
-});
-
-Route::get('/reviews', function () {
-    return view('customer.reviews');
-});
-Route::get('/reviews/name', function () {
-    return view('customer.review');
-});
-
-Route::get('/profile/user', function () {
-    return view('customer.profile');
-});
+Route::get('logout', [AuthController::class, 'logout']);
