@@ -12,8 +12,11 @@
           <li class="nav-item">
             <a class="nav-link" href="#"><i class="bi bi-envelope fs-5"></i><span class="d-lg-none"> Message</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Admin <i class="bi bi-person-circle fs-5 d-none d-lg-inline"></i></a>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">Admin <i class="bi bi-person-circle fs-5 d-none d-lg-inline"></i></a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="#">Logout</a></li>
+            </ul>
           </li>
         </ul>
       </div>

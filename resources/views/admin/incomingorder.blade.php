@@ -9,7 +9,7 @@
     <h5 class="text-center fw-bold">Today Orders</h5>
     <div class="table-responsive rounded">
         <table class="table table-borderless table-hover">
-            <thead class="bg-primary text-light">
+            <thead class="bg-primary text-light text-center">
                 <tr>
                     <th>
                         No.
@@ -35,9 +35,12 @@
                     <th>
                         STATUS
                     </th>
+                    <th>
+                        ACTION
+                    </th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="text-center">
                 <tr>
                     <td>
                         1
@@ -49,19 +52,27 @@
                         22-02-2022
                     </td>
                     <td>
-                        SAIFUL
+                        ODA
                     </td>
                     <td>
                         FULL CLEAN
                     </td>
                     <td>
-                        2 DAY
+                        1 DAY
                     </td>
                     <td>
-                        2 Kg
+                        4 Kg
                     </td>
                     <td>
                         -
+                    </td>
+                    <td>
+                        <button class="btn btn-success " >
+                            <i class="bi bi-check-lg"></i>
+                        </button>
+                        <button class="btn btn-danger " >
+                            <i class="bi bi-x-lg"></i>
+                        </button>
                     </td>
                 </tr>
             </tbody>

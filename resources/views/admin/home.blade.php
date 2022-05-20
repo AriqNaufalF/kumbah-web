@@ -8,19 +8,19 @@
     <div class="col-md-3">
         <div class="border rounded p-2 position-relative">
             <a class="text-dark text-decoration-none stretched-link" href="incoming-order" >Incoming Order </a>
-            <p class="fs-3">0</p>
+            <p class="fs-3">1</p>
         </div>
     </div>
 </div>
 <div class="row mt-3">
     <div class="col">
         <div class="d-grid">
-            <a class="btn btn-primary text-light" href="/package-list" role="button">Package List</a>
+            <a class="btn btn-info text-light" href="/package-list" role="button">Package List</a>
         </div>
     </div>
     <div class="col">
         <div class="d-grid">
-            <a class="btn btn-primary text-light" href="/order-history" role="button">Order History</a>
+            <a class="btn btn-info text-light" href="/order-history" role="button">Order History</a>
         </div>
     </div>
 </div>
@@ -71,7 +71,7 @@
                         22-02-2022
                     </td>
                     <td>
-                        SAIFUL
+                        RUDY
                     </td>
                     <td>
                         FULL CLEAN

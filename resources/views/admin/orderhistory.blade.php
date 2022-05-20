@@ -6,10 +6,14 @@
     <div class="row">
         <h2 class="text-center fw-bold text-primary">ORDER HISTORY</h2>
             <div class="border rounded mt-3 p-2">
-            <h5 class="text-center fw-bold">Today Orders</h5>
+                <div class="row justify-content-end mb-2">
+                    <div class="col-md-3">
+                        <input type="date" class="form-control" id="date" placeholder="DD/MM/YY">
+                    </div>
+                </div>
             <div class="table-responsive rounded">
                 <table class="table table-borderless table-hover">
-                    <thead class="bg-primary text-light">
+                    <thead class="bg-primary text-light text-center">
                         <tr>
                             <th>
                                 No.
@@ -37,7 +41,7 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-center">
                         <tr>
                             <td>
                                 1
@@ -49,7 +53,7 @@
                                 22-02-2022
                             </td>
                             <td>
-                                SAIFUL
+                                QORY
                             </td>
                             <td>
                                 FULL CLEAN

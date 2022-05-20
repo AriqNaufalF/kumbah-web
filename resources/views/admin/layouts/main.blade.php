@@ -7,11 +7,13 @@
     <title>Kumbah Admin | @yield('title', 'Dashboard')</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}"> 
     <script src="{{ asset('js/app.js') }}" defer></script>
+    @livewireStyles
 </head>
 <body>
     @include('admin.layouts.navbar')
     <div class="container">
         @yield('container')
     </div>
+    @livewireScripts
 </body>
 </html>
