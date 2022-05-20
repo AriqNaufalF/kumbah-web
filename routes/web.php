@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CustomerProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,22 +17,36 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.home');
+Route::group(['middleware' => ['isUser']], function () {
+
+    Route::controller(StoreController::class)->group(function () {
+        Route::get('/', 'index');
+        Route::get('/laundries', 'all');
+        Route::get('/laundry/{store:slug}', 'show');
+    });
+
+    Route::get('/cart', function () {
+        return view('customer.cart');
+    });
+
+    Route::get('/order', function () {
+        return view('customer.orderhistory');
+    });
+
+    Route::get('/reviews', function () {
+        return view('customer.reviews');
+    });
+    Route::get('/reviews/name', function () {
+        return view('customer.review');
+    });
+
+    Route::resource('/profile', CustomerProfileController::class)->only(['index', 'update']);
+    Route::post('/profile/change-password', [CustomerProfileController::class, 'change']);
 });
 
-Route::get('/incoming-order', function () {
-    return view('admin.incomingorder');
-});
+Route::get('landing', [AuthController::class, 'landing']);
+Route::get('login', [AuthController::class, 'index']);
+Route::post('loginp', [AuthController::class, 'login']);
+Route::post('registerp', [AuthController::class, 'register']);
 
-Route::get('/package-list', function () {
-    return view('admin.packagelist');
-});
-
-Route::get('/order-history', function () {
-    return view('admin.orderhistory');
-});
-
-Route::get('/add-order', function () {
-    return view('admin.addorder');
-});
+Route::post('/logout', [AuthController::class, 'logout']);
