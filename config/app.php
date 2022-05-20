@@ -169,6 +169,7 @@ return [
          */
 
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        Stevebauman\Location\LocationServiceProvider::class,
 
         /*
          * Application Service Providers...

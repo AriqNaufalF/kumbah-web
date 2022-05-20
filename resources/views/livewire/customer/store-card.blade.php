@@ -7,7 +7,6 @@
             </div>
         </div>
     </div>
-
     {{-- card --}}      
     <div class="see-all d-flex justify-content-end">
         <a href="/laundries" class="btn btn-outline-secondary">See All</a>

@@ -3,7 +3,7 @@
 @section('container')
     {{-- location area --}}
     <div class="location">
-        <h5><a href="#" class="text-decoration-none text-dark"><i class="bi bi-geo-alt-fill"></i> Location</a></h5>
+        <h5><i class="bi bi-geo-alt-fill"></i> {{ $location->cityName }}</h5>
     </div>
     <div class="row mt-4 justify-content-center">
         <div class="col-md-5 text-center welcome">
@@ -12,5 +12,5 @@
         </div>
     </div>
     {{-- store and search area--}}
-    <livewire:customer.store-card/>
+    <livewire:customer.store-card :location="$location"/>
 @endsection
