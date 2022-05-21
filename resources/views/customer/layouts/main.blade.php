@@ -22,7 +22,7 @@
 </head>
 <body class="">
     @include('customer.layouts.navbar')
-
+	@include('sweetalert::alert')
     <div class="container">
         @yield('container')
     </div>
@@ -31,6 +31,6 @@
     @livewireScripts
 
     <!-- Sweetalert Js -->
-    @stack('sweet-alert')
+	<script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
 </body>
 </html>

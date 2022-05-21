@@ -16,7 +16,7 @@ use App\Http\Controllers\CustomerProfileController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// User route
 Route::group(['middleware' => ['isUser']], function () {
 
     Route::controller(StoreController::class)->group(function () {
@@ -44,9 +44,17 @@ Route::group(['middleware' => ['isUser']], function () {
     Route::post('/profile/change-password', [CustomerProfileController::class, 'change']);
 });
 
+// Admin route
+Route::group(['middleware' => ['isAdmin']], function () {
+    Route::get('/admin', function () {
+        return view('admin.home');
+    });
+});
+
+// global route
 Route::get('landing', [AuthController::class, 'landing']);
 Route::get('login', [AuthController::class, 'index']);
 Route::post('loginp', [AuthController::class, 'login']);
 Route::post('registerp', [AuthController::class, 'register']);
 
-Route::post('/logout', [AuthController::class, 'logout']);
+Route::get('/logout', [AuthController::class, 'logout']);

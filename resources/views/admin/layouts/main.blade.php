@@ -10,10 +10,13 @@
     @livewireStyles
 </head>
 <body>
+    @include('sweetalert::alert')
     @include('admin.layouts.navbar')
     <div class="container">
         @yield('container')
     </div>
     @livewireScripts
+    <!-- Sweetalert Js -->
+	<script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
 </body>
 </html>

@@ -36,7 +36,7 @@
                 <button type="button" class="btn btn-info text-white" data-bs-toggle="modal" data-bs-target="#passwordModal">
                     Change Password
                 </button>
-                <form action="/logout" method="post" class="d-grid">
+                <form action="/logout" method="get" class="d-grid">
                     @csrf
                     <button type="submit" class="btn btn-outline-secondary">Logout</button>
                 </form>

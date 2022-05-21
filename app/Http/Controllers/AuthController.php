@@ -14,7 +14,11 @@ class AuthController extends Controller
     public function index()
     {
         if (Auth::check()) {
-            return redirect("");
+            if (Auth::user()->role == 'User') {
+                return redirect("");
+            } else {
+                return redirect("/admin");
+            }
         } else {
             return view("auth.login");
         }
@@ -23,7 +27,11 @@ class AuthController extends Controller
     public function landing()
     {
         if (Auth::check()) {
-            return redirect("");
+            if (Auth::user()->role == 'User') {
+                return redirect("");
+            } else {
+                return redirect("/admin");
+            }
         } else {
             return view("landing");
         }
@@ -36,8 +44,10 @@ class AuthController extends Controller
 
         if (Auth::attempt(['role' => 'User', 'email' => $email, 'password' => $pass])) {
             return redirect("");
+        } else if (Auth::attempt(['role' => 'Admin', 'email' => $email, 'password' => $pass])) {
+            return redirect('/admin');
         } else {
-            alert()->error("Login Gagal", "Periksa Kembali Email atau Password")->autoClose(3000);
+            alert()->error("Login Failed", "Make sure your email or password are correct!")->autoClose(3000);
             return redirect("login");
         }
     }
@@ -45,7 +55,7 @@ class AuthController extends Controller
     public function register(Request $req)
     {
         if (User::where('email', '=', $req->email)->count() > 0) {
-            alert()->error("Register Gagal", "Email Sudah Terdaftar !")->autoClose(3000);
+            alert()->error("Register Failed", "This email already registered!")->autoClose(3000);
             return redirect("login");
         } else {
             $user = new User();
@@ -57,7 +67,7 @@ class AuthController extends Controller
             $user->role     = "User";
             $user->save();
 
-            alert()->success("Register Berhasil", "User Berhasil Terdaftar !")->autoClose(3000);
+            alert()->success("Register Success", "Account registered successfully")->autoClose(3000);
             return redirect('login');
         }
     }

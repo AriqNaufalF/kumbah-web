@@ -3,10 +3,10 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class isUser
+class IsAdmin
 {
     /**
      * Handle an incoming request.
@@ -18,11 +18,11 @@ class isUser
     public function handle(Request $request, Closure $next)
     {
         if (Auth::check()) {
-            if (Auth::user()->role == "User") {
+            if (Auth::user()->role == 'Admin') {
                 return $next($request);
             } else {
-                alert()->error('', 'You are using admin account!')->autoClose(3000);
-                return redirect('/admin');
+                alert()->error('', 'You are not allowed here!')->autoClose(3000);
+                return redirect('/');
             }
         } else {
             alert()->error('', 'Please login first!')->autoClose(3000);

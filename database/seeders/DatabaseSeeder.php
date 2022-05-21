@@ -4,8 +4,10 @@ namespace Database\Seeders;
 
 use App\Models\Service;
 use App\Models\Store;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,6 +19,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+
+        User::create([
+            'name' => 'admin88',
+            'address' => 'Jl. Astana Anyar No.308, Nyengseret, Kec. Astanaanyar, Kota Bandung, Jawa Barat 40242',
+            'phone' => '081224158658',
+            'email' => 'laundry88@admin.com',
+            'password' => Hash::make('admin88'),
+            'role' => 'Admin'
+        ]);
 
         Store::create([
             'name' => 'Laundry88',
