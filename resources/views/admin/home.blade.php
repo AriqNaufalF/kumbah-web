@@ -3,11 +3,11 @@
 <div class="row mt-4">
     <div class="col">
         <h3 class="">Hallo,</h3>
-        <h1 class="fw-bold">Admin</h1>
+        <h1 class="fw-bold">{{ auth()->user()->name }}</h1>
     </div>
     <div class="col-md-3">
         <div class="border rounded p-2 position-relative">
-            <a class="text-dark text-decoration-none stretched-link" href="incoming-order" >Incoming Order </a>
+            <a class="text-dark text-decoration-none stretched-link" href="/admin/incoming-order" >Incoming Order </a>
             <p class="fs-3">1</p>
         </div>
     </div>
@@ -15,19 +15,19 @@
 <div class="row mt-3">
     <div class="col">
         <div class="d-grid">
-            <a class="btn btn-info text-light" href="/package-list" role="button">Package List</a>
+            <a class="btn btn-info text-light" href="/admin/package-list" role="button">Package List</a>
         </div>
     </div>
     <div class="col">
         <div class="d-grid">
-            <a class="btn btn-info text-light" href="/order-history" role="button">Order History</a>
+            <a class="btn btn-info text-light" href="/admin/order-history" role="button">Order History</a>
         </div>
     </div>
 </div>
 <div class="border rounded mt-3 p-2 d-inline-block w-100">
     <div class="d-flex align-items-center mb-2">
         <h5 class="text-center fw-bold">Today Orders</h5>
-        <a href="/add-order" class="btn btn-info ms-auto"><i class="bi bi-plus-square text-light fs-4"></i></a>
+        <a href="/admin/add-order" class="btn btn-info ms-auto"><i class="bi bi-plus-square text-light fs-4"></i></a>
     </div>
     <div class="table-responsive rounded">
         <table class="table table-borderless table-hover">

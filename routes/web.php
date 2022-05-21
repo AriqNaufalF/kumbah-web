@@ -49,6 +49,18 @@ Route::group(['middleware' => ['isAdmin']], function () {
     Route::get('/admin', function () {
         return view('admin.home');
     });
+    Route::get('/admin/incoming-order', function () {
+        return view('admin.incomingorder');
+    });
+    Route::get('/admin/package-list', function () {
+        return view('admin.packagelist');
+    });
+    Route::get('/admin/order-history', function () {
+        return view('admin.orderhistory');
+    });
+    Route::get('/admin/add-order', function () {
+        return view('admin.addorder');
+    });
 });
 
 // global route
