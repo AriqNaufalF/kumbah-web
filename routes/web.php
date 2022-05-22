@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerProfileController;
+use App\Http\Controllers\PackageListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,9 +53,9 @@ Route::group(['middleware' => ['isAdmin']], function () {
     Route::get('/admin/incoming-order', function () {
         return view('admin.incomingorder');
     });
-    Route::get('/admin/package-list', function () {
-        return view('admin.packagelist');
-    });
+
+    Route::resource('/admin/package-list', PackageListController::class)->except(['create', 'edit', 'store']);
+    
     Route::get('/admin/order-history', function () {
         return view('admin.orderhistory');
     });
