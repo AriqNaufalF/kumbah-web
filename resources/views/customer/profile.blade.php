@@ -43,7 +43,6 @@
             </div>
         </div>
     </div>
-    @include('sweetalert::alert')
     {{-- profile modal --}}
     <div class="modal fade" id="profileModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
@@ -132,7 +131,4 @@
 </div>
 
 @include('customer.layouts.footer')
-@push('sweet-alert')
-    <script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
-@endpush
 @endsection

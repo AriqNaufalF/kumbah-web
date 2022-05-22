@@ -5,17 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kumbah Admin | @yield('title', 'Dashboard')</title>
+     <!-- Favicon -->
+	<link rel="shortcut icon" href="{{ asset('img/logo-kumbah.svg') }}">
+    
+    {{-- Bootstrap css --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}"> 
     <script src="{{ asset('js/app.js') }}" defer></script>
+
+    {{-- Livewire --}}
     @livewireStyles
 </head>
 <body>
-    @include('sweetalert::alert')
+    {{-- navbar --}}
     @include('admin.layouts.navbar')
+    
+    {{-- sweetalert --}}
+    @include('sweetalert::alert')
+
+    {{-- Container start --}}
     <div class="container">
         @yield('container')
     </div>
+    {{-- Container end --}}
+
+    {{-- Livewire --}}
     @livewireScripts
+    
     <!-- Sweetalert Js -->
 	<script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
 </body>
