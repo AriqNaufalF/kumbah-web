@@ -51,4 +51,10 @@ class User extends Authenticatable
     {
         return 'name';
     }
+
+    // relations
+    public function store()
+    {
+        return $this->hasOne(Store::class);
+    }
 }

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('address');
             $table->text('description');
             $table->boolean('is_open');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }

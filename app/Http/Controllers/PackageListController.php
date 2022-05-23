@@ -15,7 +15,8 @@ class PackageListController extends Controller
     public function index()
     {
         return view('admin.packagelist', [
-            'services' => Service::where('store_id', '')
+            'services' => Service::where('store_id', auth()->user()->store_id)
+                ->get()
         ]);
     }
 
@@ -37,7 +38,18 @@ class PackageListController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'price' => 'required|regex:/[0-9]/',
+            'unit' => 'required',
+        ]);
+
+        $validated['store_id'] = auth()->user()->store_id;
+
+        Service::create($validated);
+
+        alert()->success("Success", "Service added successfully")->autoClose(3000);
+        return redirect('/admin/package-list');
     }
 
     /**
@@ -71,7 +83,19 @@ class PackageListController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'price' => 'required|regex:/[0-9]/',
+            'unit' => 'required',
+        ]);
+
+        $validated['store_id'] = auth()->user()->store_id;
+
+        Service::where('id', $id)
+            ->update($validated);
+
+        alert()->success("Success", "Service updated successfully")->autoClose(3000);
+        return redirect('/admin/package-list');
     }
 
     /**
@@ -82,6 +106,9 @@ class PackageListController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Service::destroy($id);
+
+        alert()->success("Success", "Service deleted successfully")->autoClose(3000);
+        return redirect('/admin/package-list');
     }
 }

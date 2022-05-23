@@ -54,8 +54,8 @@ Route::group(['middleware' => ['isAdmin']], function () {
         return view('admin.incomingorder');
     });
 
-    Route::resource('/admin/package-list', PackageListController::class)->except(['create', 'edit', 'store']);
-    
+    Route::resource('/admin/package-list', PackageListController::class)->except(['create', 'edit', 'show']);
+
     Route::get('/admin/order-history', function () {
         return view('admin.orderhistory');
     });

@@ -26,7 +26,8 @@ class DatabaseSeeder extends Seeder
             'phone' => '081224158658',
             'email' => 'laundry88@admin.com',
             'password' => Hash::make('admin88'),
-            'role' => 'Admin'
+            'role' => 'Admin',
+            'store_id' => 1
         ]);
 
         Store::create([
@@ -34,14 +35,16 @@ class DatabaseSeeder extends Seeder
             'slug' => 'laundry88',
             'address' => 'Jl. Astana Anyar No.308, Nyengseret, Kec. Astanaanyar, Kota Bandung, Jawa Barat 40242',
             'description' => 'phone: 081224158658',
-            'is_open' => 1
+            'is_open' => 1,
+            'user_id' => 1,
         ]);
         Store::create([
             'name' => 'Laundry Kiloan',
             'slug' => 'laundry-kiloan',
             'address' => 'Jl. Babakan Ciamis No.34, Babakan Ciamis, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40117',
             'description' => 'phone: 088218445889',
-            'is_open' => 0
+            'is_open' => 0,
+            'user_id' => 0,
         ]);
         Store::factory(25)->create();
 

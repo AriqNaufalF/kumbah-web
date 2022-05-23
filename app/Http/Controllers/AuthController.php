@@ -65,6 +65,7 @@ class AuthController extends Controller
             $user->email    = $req->email;
             $user->password = Hash::make($req->pass);
             $user->role     = "User";
+            $user->store_id = 0;
             $user->save();
 
             alert()->success("Register Success", "Account registered successfully")->autoClose(3000);

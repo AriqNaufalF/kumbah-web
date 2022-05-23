@@ -21,7 +21,8 @@ class StoreFactory extends Factory
             'slug' => $this->faker->slug(mt_rand(2, 3)),
             'address' => $this->faker->address(),
             'description' => $this->faker->paragraphs(3, true),
-            'is_open' => mt_rand(0, 1)
+            'is_open' => mt_rand(0, 1),
+            'user_id' => 0,
         ];
     }
 }
