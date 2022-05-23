@@ -10,7 +10,7 @@
     <div class="row row-cols-1 row-cols-md-2 g-2 mt-5">
         <div class="col col-md-8">
             <h6 class="fw-bold">Shipping Address</h6>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum, saepe!</p>
+            <p>{{ auth()->user()->address }}</p>
 
             <hr class="border border-top border-2 mt-4">
 
@@ -23,54 +23,50 @@
                         <th width="100px">Jumlah</th>
                         <th width="50px">Unit</th>
                         <th>Subtotal</th>
-                        <th>Action</th>
+                        <th colspan="2" class="text-center">Action</th>
                     </tr>
 
                     @forelse($items as $item)
                     <tr class="align-middle">
                         <td>{{ $item->name }}</td>
+                    <form action="{{ url('cart/update') }}" method="POST">
+                        @csrf
                         <td>
-                            <form action="{{ url('cart/update') }}" method="POST">
-                                
-                                @csrf
-
-                                <input type="hidden" name="id" value="{{ $item->id }}">
-                                <input type="number" min="1" max="99" value="{{ $item->quantity }}" class="form-control" name="quantity">
+                            <input type="hidden" name="id" value="{{ $item->id }}">
+                            <input type="number" min="1" max="99" value="{{ $item->quantity }}" class="form-control" name="quantity">
                         </td>
                         <td>{{ $item->model->unit }}</td>
                         <td>{{ $item->getPriceSum() }}</td>
-                        <td>
-                                <button type="submit" class="btn btn-sm btn-warning">
-                                    <i class="bi bi-pencil-square"></i>
-                                </button>
-
-                            </form>
-
+                        <td style="width: 50px">
+                            <button type="submit" class="btn btn-sm btn-warning">
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
+                        </td>
+                    </form>
+                        <td style="width: 50px" class="">
                             <form action="{{ url('cart/delete') }}" method="POST">
-
                                 @csrf
-
                                 <input type="hidden" name="id" value="{{ $item->id }}">
-                                <button type="submit" class="btn btn-sm btn-danger">
+                                <button type="submit" class="btn btn-sm btn-danger d-block">
                                     <i class="bi bi-trash"></i>
                                 </button>
-                                
                             </form>
-                            
                         </td>
                     </tr>
                     @empty
                     <tr>
-                        <td class="text-center" colspan="4">Cart is empty.</td>
+                        <td class="text-center text-muted" colspan="5">Cart is empty.</td>
                     </tr>
                     @endforelse
                 </table>
             </div>
 
-            <form action="{{ url('cart/clear') }}" method="POST">
-                @csrf
-                <input type="submit" name="" value="Clear">
-            </form>
+            <div class="my-2">
+                <form action="{{ url('cart/clear') }}" method="POST">
+                    @csrf
+                    <input type="submit" name="" value="Clear" class="btn btn-outline-dark">
+                </form>
+            </div>
         </div>
 
         <div class="col col-md-4">

@@ -4,7 +4,7 @@
             <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#servicemodal"><i class="bi bi-plus-square text-light fs-4" ></i></button>
         </div>  
         <div class="row">
-          @foreach ($services as $service)
+          @forelse ($services as $service)
             <div class="col-sm-4 mb-2">
                 <div class="card">
                     <div class="card-body">
@@ -17,7 +17,11 @@
                     </div>
                 </div>
             </div>
-          @endforeach
+          @empty
+            <div class="col text-center text-muted">
+              <h4>You don't have a service yet. Please add it first!</h4>
+            </div>
+          @endforelse
         </div>
     </div>
     
