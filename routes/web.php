@@ -4,6 +4,7 @@ use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CustomerProfileController;
 use App\Http\Controllers\PackageListController;
 
@@ -26,10 +27,6 @@ Route::group(['middleware' => ['isUser']], function () {
         Route::get('/laundry/{store:slug}', 'show');
     });
 
-    Route::get('/cart', function () {
-        return view('customer.cart');
-    });
-
     Route::get('/order', function () {
         return view('customer.orderhistory');
     });
@@ -43,6 +40,18 @@ Route::group(['middleware' => ['isUser']], function () {
 
     Route::resource('/profile', CustomerProfileController::class)->only(['index', 'update']);
     Route::post('/profile/change-password', [CustomerProfileController::class, 'change']);
+
+    Route::prefix('cart')->group(function ()
+    {
+        Route::controller(CartController::class)->group(function ()
+        {
+           Route::get('', 'index');
+           Route::post('add', 'add');
+           Route::post('update', 'update');
+           Route::post('delete', 'delete');
+           Route::post('clear', 'clear');
+        });
+    });
 });
 
 // Admin route
