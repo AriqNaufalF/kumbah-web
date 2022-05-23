@@ -3,7 +3,23 @@
 <div class="row mt-4">
     <div class="col">
         <h3 class="">Hallo,</h3>
-        <h1 class="fw-bold">{{ auth()->user()->name }}</h1>
+        <h2 class="fw-bold">{{ auth()->user()->name }}</h2>
+        <h5>
+            Store is currently
+            @if ($store->is_open) 
+                <span class="badge bg-success">OPEN</span>
+            @else
+                <span class="badge bg-danger">CLOSE</span>
+            @endif
+        </h5>
+        <form action="/admin/open-store/{{ $store->id }}" method="POST">
+            @csrf
+            @if ($store->is_open)
+                <button type="submit" class="btn btn-outline-danger btn-sm">CLOSE NOW</button>
+            @else
+                <button type="submit" class="btn btn-outline-success btn-sm">OPEN NOW</button>
+            @endif
+        </form>
     </div>
     <div class="col-md-3">
         <div class="border rounded p-2 position-relative">

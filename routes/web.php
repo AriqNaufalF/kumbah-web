@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminHomeController;
 use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,24 +42,24 @@ Route::group(['middleware' => ['isUser']], function () {
     Route::resource('/profile', CustomerProfileController::class)->only(['index', 'update']);
     Route::post('/profile/change-password', [CustomerProfileController::class, 'change']);
 
-    Route::prefix('cart')->group(function ()
-    {
-        Route::controller(CartController::class)->group(function ()
-        {
-           Route::get('', 'index');
-           Route::post('add', 'add');
-           Route::post('update', 'update');
-           Route::post('delete', 'delete');
-           Route::post('clear', 'clear');
+    Route::prefix('cart')->group(function () {
+        Route::controller(CartController::class)->group(function () {
+            Route::get('', 'index');
+            Route::post('add', 'add');
+            Route::post('update', 'update');
+            Route::post('delete', 'delete');
+            Route::post('clear', 'clear');
         });
     });
 });
 
 // Admin route
 Route::group(['middleware' => ['isAdmin']], function () {
-    Route::get('/admin', function () {
-        return view('admin.home');
+    Route::controller(AdminHomeController::class)->group(function () {
+        Route::get('/admin', 'index');
+        Route::post('/admin/open-store/{store}', 'isOpen');
     });
+
     Route::get('/admin/incoming-order', function () {
         return view('admin.incomingorder');
     });
