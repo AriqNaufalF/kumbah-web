@@ -26,6 +26,8 @@ class StoreController extends Controller
     {
         return view('customer.laundry', [
             'store' => $store
+                ->load(['service'
+                => fn ($q) => $q->orderBy('name')])
         ]);
     }
 }

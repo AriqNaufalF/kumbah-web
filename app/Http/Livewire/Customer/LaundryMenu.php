@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Customer;
 
-use App\Models\Service;
 use Livewire\Component;
 
 class LaundryMenu extends Component
@@ -12,8 +11,7 @@ class LaundryMenu extends Component
 
     public function mount($store)
     {
-        $this->services = Service::orderBy('name', 'asc')
-            ->where('store_id', 'like', '%' . $store->id . '%')->get();
+        $this->services = $store->service;
     }
 
     public function render()
