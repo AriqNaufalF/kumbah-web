@@ -7,14 +7,20 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/admin/incoming-order"><i class="bi bi-bell fs-5"></i><span class="d-lg-none"> Notification</span></a>
+            <a class="nav-link {{ Request::is('admin/incoming-order') ? 'active' : '' }}" href="/admin/incoming-order"><i class="bi bi-bell fs-5"></i><span class="d-lg-none"> Notification</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="modal" data-bs-target="#wip"><i class="bi bi-envelope fs-5"></i><span class="d-lg-none"> Message</span></a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">{{ auth()->user()->name }} <i class="bi bi-person-circle fs-5 d-none d-lg-inline"></i></a>
+            <a class="nav-link {{ Request::is('admin/profile') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown">{{ auth()->user()->name }} <i class="bi bi-person-circle fs-5 d-none d-lg-inline"></i></a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+              <li class="clearfix">
+                <a href="/admin/profile" class="dropdown-item">Store Profile<span class="float-end fs-5"><i class="bi bi-shop"></i></span></a>
+              </li>
+              <li>
+                <hr class="drowpdown-devider">
+              </li>
               <li>
                 <form action="/logout" method="get">
                   @csrf
