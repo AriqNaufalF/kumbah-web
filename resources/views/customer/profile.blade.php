@@ -52,7 +52,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="/profile/{{ $user->name }}" method="post">
+                <form action="/profile/{{ $user->id }}" method="post">
                     @method('put')
                     @csrf
                     <div class="mb-3">

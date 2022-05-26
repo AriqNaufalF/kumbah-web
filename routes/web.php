@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\AdminHomeController;
-use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AdminHomeController;
+use App\Http\Controllers\AdminProfileController;
+use App\Http\Controllers\StoreController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CustomerProfileController;
@@ -71,6 +72,13 @@ Route::group(['middleware' => ['isAdmin']], function () {
     });
     Route::get('/admin/add-order', function () {
         return view('admin.addorder');
+    });
+
+    Route::controller(AdminProfileController::class)->group(function () {
+        Route::get('/admin/profile', 'index');
+        Route::post('/admin/profile', 'change');
+        Route::post('/admin/profile/{store:slug}/edit', 'storeUpdate');
+        Route::post('/admin/profile/{user}', 'adminUpdate');
     });
 });
 

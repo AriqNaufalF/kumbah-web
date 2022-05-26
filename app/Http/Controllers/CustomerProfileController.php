@@ -79,7 +79,7 @@ class CustomerProfileController extends Controller
         ];
 
         if ($request->email != auth()->user()->email) {
-            $rules['email'] = 'required|email|unique:user';
+            $rules['email'] = 'required|email|unique:users';
         }
 
         $validated = $request->validate($rules);
@@ -105,11 +105,6 @@ class CustomerProfileController extends Controller
     // Change Password
     public function change(Request $request)
     {
-        $validated = $request->validate([
-            'oldpass' => 'required',
-            'newpass' => 'required'
-        ]);
-
         $passFromDb = auth()->user()->password;
         if (Hash::check($request->oldpass, $passFromDb)) {
             if (!Hash::check($request->newpass, $passFromDb)) {
