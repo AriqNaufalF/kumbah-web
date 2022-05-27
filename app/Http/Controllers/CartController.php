@@ -7,13 +7,15 @@ use Illuminate\Http\Request;
 use App\Models\Service;
 
 use Auth;
+use Alert;
 use Cart;
+use Carbon\Carbon;
 
 class CartController extends Controller
 {
-    public function index()
+    public function index(Request $req)
     {
-        $items  = Cart::session(Auth::id())->getContent();
+        $items          = Cart::session(Auth::id())->getContent();
 
         return view('customer.cart', compact('items'));
     }

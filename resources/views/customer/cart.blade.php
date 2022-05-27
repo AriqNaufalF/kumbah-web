@@ -85,7 +85,8 @@
                         <p class="card-text fw-bold">Total Price</p>
                         <p class="card-text text-end fw-bold">Rp {{ \Cart::session(Auth::id())->getTotal() }}</p>
                     </div>
-                    <form action="" class="text-center">
+                    <form action="{{ url('order/create') }}" method="post" class="text-center">
+                        @csrf
                         <select class="form-select my-3" name="payment">
                             <option selected>Choose Payment Method</option>
                             <option value="1">One</option>

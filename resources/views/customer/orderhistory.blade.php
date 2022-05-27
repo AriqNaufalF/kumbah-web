@@ -22,20 +22,24 @@
                         <th>#</th>
                         <th>ID Order</th>
                         <th>Order Date</th>
-                        <th>Store Name</th>
-                        <th>Service</th>
+                        <th>Nama Toko</th>
                         <th>Total</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="align-middle">
+                    @forelse ($orders as $order)
                     <tr>
-                        <td>1.</td>
-                        <td>C0001</td>
-                        <td>26-04-2022</td>
-                        <td>Laundry bersih</td>
-                        <td>Cuci seprai</td>
-                        <td>Rp20.000</td>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $order->order_id }}</td>
+                        <td>{{ \Carbon\Carbon::parse($order->order_date)->format(' d M Y') }}</td>
+                        <td>{{ \App\Models\Service::find($order->service_id)->store->name }}</td>
+                        <td>Rp. {{ $order->total_payments }}</td>
                     </tr>
+                    @empty
+                    <tr class="text-center">
+                        <td colspan="6">No Order History.</td>
+                    </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div> 

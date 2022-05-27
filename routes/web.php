@@ -8,6 +8,7 @@ use App\Http\Controllers\StoreController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CustomerProfileController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PackageListController;
 
 /*
@@ -29,8 +30,11 @@ Route::group(['middleware' => ['isUser']], function () {
         Route::get('/laundry/{store:slug}', 'show');
     });
 
-    Route::get('/order', function () {
-        return view('customer.orderhistory');
+    Route::prefix('order')->group(function () {
+        Route::controller(OrderController::class)->group(function () {
+            Route::get('', 'index');
+            Route::post('create', 'create');
+        });
     });
 
     Route::get('/reviews', function () {
