@@ -10,14 +10,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('order') ? 'active' : '' }}" href="/order"><i class="bi bi-journal-text fs-5"></i> <span class="d-lg-none">Order History</span></a>
+            <a class="nav-link {{ Request::is('order') ? 'active' : '' }}" href="/order"><i class="bi bi-journal-text fs-5"></i> <span class="d-lg-none">Transaction</span></a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link {{ Request::is('reviews') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-envelope fs-5"></i> <span class="d-lg-none">Notification</span></a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="/reviews">Reviews</a></li>
-              <li><a class="dropdown-item" href="#">Order status</a></li>
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link {{ Request::is('reviews') ? 'active' : '' }}" href="/reviews"><i class="bi bi-envelope fs-5"></i> <span class="d-lg-none">Reviews</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link {{ Request::is('cart') ? 'active' : '' }}" href="/cart"><i class="bi bi-cart-fill fs-5"></i> <span class="d-lg-none">Cart</span></a>

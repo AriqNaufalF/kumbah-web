@@ -18,7 +18,7 @@ class OrderController extends Controller
     {
         $orders         = Order::where('customer_id', '=', Auth::id())->orderBy('order_date', 'desc')->get();
 
-        return view('customer.orderhistory', compact("orders"));
+        return view('customer.transaction', compact("orders"));
     }
 
     public function create()
@@ -37,8 +37,7 @@ class OrderController extends Controller
 
         $items           = Cart::session(Auth::id())->getContent();
 
-        foreach ($items as $item)
-        {
+        foreach ($items as $item) {
             $order                  = new Order();
             $order->order_id        = $orderId;
             $order->order_date      = $order_date;

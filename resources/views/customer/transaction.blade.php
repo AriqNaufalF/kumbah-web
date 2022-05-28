@@ -4,7 +4,7 @@
 
 @section('container')
     <div class="text-center mt-4">
-        <h1 class="text-uppercase fw-bold">order history</h1>
+        <h3 class="text-uppercase fw-bold">Transaction</h3>
     </div>
     <div class="mt-3 p-2 border rounded">
         <div class="row mb-2">
