@@ -8,6 +8,7 @@ use App\Http\Controllers\StoreController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CustomerProfileController;
+use App\Http\Controllers\AdminOrderController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PackageListController;
 
@@ -65,15 +66,15 @@ Route::group(['middleware' => ['isAdmin']], function () {
         Route::post('/admin/open-store/{store}', 'isOpen');
     });
 
-    Route::get('/admin/incoming-order', function () {
-        return view('admin.incomingorder');
+    Route::controller(AdminOrderController::class)->group(function () {
+        Route::get('/admin/incoming-order', 'index');
+        Route::post('/admin/{order}/process', 'process');
+        Route::post('/admin/{order}/finish', 'finish');
+        Route::get('/admin/order-history', 'history');
     });
 
     Route::resource('/admin/package-list', PackageListController::class)->except(['create', 'edit', 'show']);
 
-    Route::get('/admin/order-history', function () {
-        return view('admin.orderhistory');
-    });
     Route::get('/admin/add-order', function () {
         return view('admin.addorder');
     });

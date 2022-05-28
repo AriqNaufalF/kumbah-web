@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="table-responsive rounded">
-            <table class="table table-borderless table-hover">
+            <table class="table table-borderless table-hover  text-center">
                 <thead class="bg-primary text-light">
                     <tr>
                         <th>#</th>
@@ -24,6 +24,7 @@
                         <th>Order Date</th>
                         <th>Nama Toko</th>
                         <th>Total</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody class="align-middle">
@@ -34,6 +35,15 @@
                         <td>{{ \Carbon\Carbon::parse($order->order_date)->format(' d M Y') }}</td>
                         <td>{{ \App\Models\Service::find($order->service_id)->store->name }}</td>
                         <td>Rp. {{ $order->total_payments }}</td>
+                        @if ($order->status != 'finished')
+                            <td>
+                                <span class="text-uppercase badge bg-warning text-dark">{{ $order->status }}</span>
+                            </td>
+                        @else
+                            <td>
+                                <span class="text-uppercase badge bg-success">{{ $order->status }}</span>
+                            </td>
+                        @endif
                     </tr>
                     @empty
                     <tr class="text-center">

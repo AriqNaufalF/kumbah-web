@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string("order_id");
             $table->timestamp("order_date");
             $table->integer("total_payments");
+            $table->enum('status', ['ordered', 'processed', 'finished'])->default('ordered');
             $table->foreignId("customer_id");
             $table->foreignId("service_id");
             $table->timestamps();

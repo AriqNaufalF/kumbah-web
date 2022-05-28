@@ -12,62 +12,34 @@
                     </div>
                 </div>
             <div class="table-responsive rounded">
-                <table class="table table-borderless table-hover">
-                    <thead class="bg-primary text-light text-center">
+                <table class="table table-borderless table-hover text-center">
+                    <thead class="bg-primary text-light">
                         <tr>
-                            <th>
-                                No.
-                            </th>
-                            <th>
-                                ID ORDER
-                            </th>
-                            <th>
-                                ORDER DATE
-                            </th>
-                            <th>
-                                COSTUMER NAME
-                            </th>
-                            <th>
-                                SERVICE
-                            </th>
-                            <th>
-                                ESTIMATION
-                            </th>
-                            <th>
-                                UNIT
-                            </th>
-                            <th>
-                                STATUS
-                            </th>
+                            <th>#</th>
+                            <th>ID ORDER</th>
+                            <th>ORDER DATE</th>
+                            <th>COSTUMER NAME</th>
+                            <th>SERVICE</th>
+                            <th>Total Payment</th>
+                            <th>STATUS</th>
                         </tr>
                     </thead>
-                    <tbody class="text-center">
+                    <tbody>
+                        @forelse ($orders as $order)
                         <tr>
-                            <td>
-                                1
-                            </td>
-                            <td>
-                                CST-001
-                            </td>
-                            <td>
-                                22-02-2022
-                            </td>
-                            <td>
-                                QORY
-                            </td>
-                            <td>
-                                FULL CLEAN
-                            </td>
-                            <td>
-                                2 DAY
-                            </td>
-                            <td>
-                                2 Kg
-                            </td>
-                            <td>
-                                -
-                            </td>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $order->order_id }}</td>
+                            <td>{{ $order->order_date }}</td>
+                            <td>{{ $order->user->name }}</td>
+                            <td>{{ $order->service->name }}</td>
+                            <td>{{ $order->total_payments }}</td>
+                            <td><span class="badge bg-success text-uppercase">{{ $order->status }}</span></td>
                         </tr>
+                        @empty
+                        <tr class="text-center">
+                            <td colspan="8">No orders yet.</td>
+                        </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

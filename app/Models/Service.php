@@ -17,8 +17,8 @@ class Service extends Model
         return $this->belongsTo(Store::class);
     }
 
-    public function users()
+    public function order()
     {
-        return $this->belongsToMany(User::class, Order::class);
+        return $this->hasMany(Order::class);
     }
 }
