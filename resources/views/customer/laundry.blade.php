@@ -28,7 +28,7 @@
                         
                     </div>
                     <hr class="bg-info border-info border-2 border-top">
-                    <a href="https://wa.me/{{ $store->user->phone }}?text=I'm%20interested%20in%20your%20services" target="_blank" class="btn btn-info px-5 my-2 text-light">Chat <i class="bi bi-whatsapp"></i></a>
+                    <a href="https://wa.me/{{ $store->user->phone ?? ''}}?text=I'm%20interested%20in%20your%20services" target="_blank" class="btn btn-info px-5 my-2 text-light">Chat <i class="bi bi-whatsapp"></i></a>
                 </div>
               </div>
         </div>
