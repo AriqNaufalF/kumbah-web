@@ -74,10 +74,10 @@ class CustomerProfileController extends Controller
     {
         $rules = [
             'name' => 'required|max:255',
-            'phone' => 'required|regex:/(0)[0-9]{9}/',
+            'phone' => 'required|regex:/(62)[0-9]{9}/',
             'address' => 'required'
         ];
-
+        dump($rules);
         if ($request->email != auth()->user()->email) {
             $rules['email'] = 'required|email|unique:users';
         }

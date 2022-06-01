@@ -40,7 +40,7 @@ class AdminProfileController extends Controller
     {
         $rules = [
             'name' => 'required|max:100',
-            'phone' => 'required|regex:/(0)[0-9]{9}/',
+            'phone' => 'required|regex:/(62)[0-9]{9}/',
             'confirmed' => 'required|current_password'
         ];
 
