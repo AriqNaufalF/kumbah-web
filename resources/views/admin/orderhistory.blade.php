@@ -37,7 +37,7 @@
                         </tr>
                         @empty
                         <tr class="text-center">
-                            <td colspan="8">No orders yet.</td>
+                            <td colspan="8" class="text-muted">No orders yet.</td>
                         </tr>
                         @endforelse
                     </tbody>

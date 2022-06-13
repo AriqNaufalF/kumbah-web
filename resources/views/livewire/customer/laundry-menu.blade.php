@@ -34,7 +34,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($services as $service)
+                    @forelse ($services as $service)
                     <tr class="align-middle">
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $service->name }}</td>
@@ -58,7 +58,11 @@
                             </form>
                         </td>
                     </tr>
-                    @endforeach
+                    @empty
+                    <tr class="text-center">
+                        <td class="text-muted" colspan="6">There is no service yet. Find other store!</td>
+                    </tr>
+                    @endforelse
                 </tbody>
             </table>    
             @else 
@@ -88,7 +92,7 @@
                     </tr>
                     @empty
                     <tr>
-                        <td class="text-center text-muted">No reviews yet</td>
+                        <td colspan="3" class="text-center text-muted">No reviews yet</td>
                     </tr>
                     @endforelse
                 </tbody>

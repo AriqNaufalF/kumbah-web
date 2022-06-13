@@ -7,7 +7,7 @@
     </div>
     <div class="row mt-4 justify-content-center">
         <div class="col-md-5 text-center welcome">
-            <h3 class="fw-bold">Hello, User</h3>
+            <h3 class="fw-bold">Hello, {{ auth()->user()->name }}</h3>
             <h4>Want to find a laundry?</h4>
         </div>
     </div>

@@ -47,7 +47,7 @@
                     </tr>
                     @empty
                     <tr class="text-center">
-                        <td colspan="6">No Order History.</td>
+                        <td colspan="6" class="text-muted">No Order History.</td>
                     </tr>
                     @endforelse
                 </tbody>

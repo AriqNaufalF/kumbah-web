@@ -54,7 +54,7 @@ class AdminOrderController extends Controller
         }
 
         $orders = Order::with(['user', 'service'])->whereIn('service_id', $service_id)
-            ->whereIn('status', ['finished'])->get();
+            ->whereIn('status', ['finished'])->latest()->get();
 
         return view('admin.orderhistory', [
             'orders' => $orders
