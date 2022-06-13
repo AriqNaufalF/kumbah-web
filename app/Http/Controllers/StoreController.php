@@ -26,8 +26,11 @@ class StoreController extends Controller
     {
         return view('customer.laundry', [
             'store' => $store
-                ->load(['service'
-                => fn ($q) => $q->orderBy('name')])
+                ->load([
+                    'service' => fn ($q) => $q->orderBy('name'),
+                    'review' => fn ($q) => $q->latest()
+                ]),
+            'avgRating' => $store->review->avg('rating') ?? '0'
         ]);
     }
 }

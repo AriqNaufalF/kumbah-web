@@ -8,10 +8,12 @@ class LaundryMenu extends Component
 {
     public $select = 'service';
     public $services;
+    public $reviews;
 
     public function mount($store)
     {
         $this->services = $store->service;
+        $this->reviews = $store->review;
     }
 
     public function render()

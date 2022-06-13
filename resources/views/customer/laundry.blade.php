@@ -19,7 +19,7 @@
             <div class="card border-info" style="border-radius: 15px">
                 <div class="card-body text-center">
                     <div class="card-title d-flex justify-content-evenly pt-1">
-                        <h4><i class="bi bi-star-fill text-warning"></i> 4.1</h4>
+                        <h4><i class="bi bi-star-fill text-warning"></i> {{ $avgRating }}</h4>
                         @if ($store->is_open)
                             <h4 class="text-success">OPEN</h4>  
                         @else

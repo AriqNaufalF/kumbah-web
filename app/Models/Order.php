@@ -20,4 +20,9 @@ class Order extends Model
     {
         return $this->belongsTo(Service::class);
     }
+
+    public function review()
+    {
+        return $this->belongsTo(Review::class);
+    }
 }

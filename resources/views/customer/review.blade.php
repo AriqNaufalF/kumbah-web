@@ -11,47 +11,48 @@
     <h3 class="fw-bold">Leave A Review</h3>
 </div>
 
-<div class="row mt-3 shadow rounded px-3">
-    <div class="col-md-4 text-center border rounded p-1 my-3">
-        <img src="/img/laundry-1.jpeg" alt="..." width="50%">
-        <h4>Nama Laundry</h4>
-        <p class="text-muted mb-3">Jr. Abdul No. 84, Kota Bandung</p>
-        <small>How satisfied?</small>
-        <div class="rating-css">
-            <div class="star-icon">
-                <input type="radio" value="1" name="product_rating" id="rating1">
-                <label for="rating1" class="bi bi-star-fill fs-2"></label>
-                <input type="radio" value="2" name="product_rating" id="rating2">
-                <label for="rating2" class="bi bi-star-fill fs-2"></label>
-                <input type="radio" value="3" name="product_rating" id="rating3">
-                <label for="rating3" class="bi bi-star-fill fs-2"></label>
-                <input type="radio" value="4" name="product_rating" id="rating4">
-                <label for="rating4" class="bi bi-star-fill fs-2"></label>
-                <input type="radio" value="5" name="product_rating" id="rating5">
-                <label for="rating5" class="bi bi-star-fill fs-2"></label>
+<form action="/reviews/{{ $review->id }}" method="POST">
+    @csrf
+    @method('put')
+    <div class="row mt-3 shadow rounded px-3">
+        <div class="col-md-4 text-center border rounded p-1 my-3">
+            <img src="/img/laundry-1.jpeg" width="50%">
+            <h4>{{ $review->store->name }}</h4>
+            <p class="text-muted mb-3">{{ $review->store->address }}</p>
+            <small>How satisfied?</small>
+            <div class="rating-css">
+                <div class="star-icon">
+                    @for ($i = 1; $i <= 5; $i++)
+                    <input type="radio" value="{{ $i }}" name="rating" id="rating{{ $i }}">
+                    <label for="rating{{ $i }}" class="bi bi-star-fill fs-2"></label>
+                    @endfor
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-8 my-3">
-        <div class="card-title text-center">
-            <h4>Detail order</h4>
-        </div>
-        <div class="card-body">
-            <span class="fw-bold">Customer Name</span>
-            <p>Ucok</p>
-            <span class="fw-bold">Order ID</span>
-            <p>abcdefg</p>
-            <form action="">
+        <div class="col-md-8 my-3">
+            <div class="card-title text-center">
+                <h4>Detail order</h4>
+            </div>
+            <div class="card-body">
+                <span class="fw-bold">Customer Name</span>
+                <p>{{ $review->user->name }}</p>
+                <span class="fw-bold">Order ID</span>
+                <p>{{ $review->order_id }}</p>
                 <div class="form-floating">
-                    <textarea class="form-control" placeholder="Give review about the services" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <textarea class="form-control @error('review') is-invalid @enderror" placeholder="Give review about the services" id="floatingTextarea2" style="height: 100px" name="review" maxlength="500" required>{{ old('review') }}</textarea>
                     <label for="floatingTextarea2">Give review about the services</label>
+                    @error('review')                        
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <div class="mt-4 text-end">
                     <a href="/reviews" class="btn btn-secondary mx-2">Cancel</a>
                     <button class="btn btn-info text-light" type="submit">Send</button>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
-</div>
+</form>
 @endsection

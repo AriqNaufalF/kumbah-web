@@ -20,7 +20,7 @@
                     <h5 class="card-title"><a href="/laundry/{{ $store->slug }}" class="text-decoration-none stretched-link  text-dark">{{ $store->name }}</a></h5>
                     <p class="card-text"><small class="text-muted">{{ $store->address }}</small></p>
                     <div class="d-flex justify-content-between">
-                    <h6 class="fw-bold"><i class="bi bi-star-fill text-warning"></i> 4.1</h6>
+                    <h6 class="fw-bold"><i class="bi bi-star-fill text-warning"></i> {{ $store->review->avg('rating') ?? 0 }}</h6>
                     @if ($store->is_open)
                         <h5 class="text-success">OPEN</h5>
                     @else

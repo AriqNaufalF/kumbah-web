@@ -38,6 +38,9 @@ class AdminOrderController extends Controller
         Order::find($order->id)
             ->update(['status' => 'finished']);
 
+        $makeReview = new ReviewController;
+        $makeReview->store($order);
+
         return back();
     }
 

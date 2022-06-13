@@ -11,6 +11,7 @@ use App\Http\Controllers\CustomerProfileController;
 use App\Http\Controllers\AdminOrderController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PackageListController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,12 +39,7 @@ Route::group(['middleware' => ['isUser']], function () {
         });
     });
 
-    Route::get('/reviews', function () {
-        return view('customer.reviews');
-    });
-    Route::get('/reviews/name', function () {
-        return view('customer.review');
-    });
+    Route::resource('/reviews', ReviewController::class)->only(['index', 'store', 'show', 'update']);
 
     Route::resource('/profile', CustomerProfileController::class)->only(['index', 'update']);
     Route::post('/profile/change-password', [CustomerProfileController::class, 'change']);

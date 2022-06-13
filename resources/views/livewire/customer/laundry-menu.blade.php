@@ -62,7 +62,7 @@
                 </tbody>
             </table>    
             @else 
-            <table class="table table-borderless table-hover" id="review">
+            <table class="table table-borderless table-hover text-center" id="review">
                 <thead class="bg-primary text-light">
                     <tr>
                         <th>Name</th>
@@ -71,15 +71,26 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @forelse ($reviews as $review)
                     <tr>
-                        <td>Ucok</td>
-                        <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti, cum?</td>
+                        <td>{{ $review->user->name }}</td>
+                        <td class="text-start">{{ $review->review }}</td>
                         <td>
-                            @for ($i = 0; $i < 4; $i++)
+                            @for ($i = 1; $i <= $review->rating; $i++)
                                 <i class="bi bi-star-fill text-warning"></i>
                             @endfor
+                            @if ($review->rating < 5)
+                                @for ($i = $review->rating; $i < 5; $i++)
+                                    <i class="bi bi-star-fill text-secondary"></i>
+                                @endfor
+                            @endif
                         </td>
                     </tr>
+                    @empty
+                    <tr>
+                        <td class="text-center text-muted">No reviews yet</td>
+                    </tr>
+                    @endforelse
                 </tbody>
             </table>    
             @endif

@@ -27,8 +27,8 @@ class AllStoreCard extends Component
     {
         return view('livewire.customer.all-store-card', [
             'stores' => $this->search == null ?
-                Store::orderBy('is_open', 'desc')->paginate(16) :
-                Store::where('name', 'like', '%' . $this->search . '%')
+                Store::with(['review'])->orderBy('is_open', 'desc')->paginate(16) :
+                Store::with(['review'])->where('name', 'like', '%' . $this->search . '%')
                 ->orWhere('address', 'like', '%' . $this->search . '%')
                 ->paginate(8)
         ]);
