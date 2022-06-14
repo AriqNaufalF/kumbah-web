@@ -7,6 +7,7 @@ use App\Models\Review;
 use App\Models\Service;
 use App\Models\Store;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ReviewController extends Controller
 {
@@ -18,7 +19,7 @@ class ReviewController extends Controller
     public function index()
     {
         return view('customer.reviews', [
-            'reviews' => Review::where('customer_id', auth()->user()->id)->get()
+            'reviews' => Review::where('customer_id', auth()->user()->id)->latest()->get()
         ]);
     }
 
@@ -61,9 +62,13 @@ class ReviewController extends Controller
      */
     public function show(Review $review)
     {
-        return view('customer.review', [
-            'review' => $review,
-        ]);
+        if (Gate::allows('update-review', $review)) {
+            return view('customer.review', [
+                'review' => $review,
+            ]);
+        }
+
+        abort(403);
     }
 
     /**
